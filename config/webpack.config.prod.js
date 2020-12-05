@@ -16,17 +16,17 @@ const webpackConfig = merge(baseWebpackConfig, {
             // 是否注释掉console
             drop_console: false,
             dead_code: true,
-            drop_debugger: true
+            drop_debugger: true,
           },
           output: {
             comments: false,
-            beautify: false
+            beautify: false,
           },
-          mangle: true
+          mangle: true,
         },
         parallel: true,
         // sourceMap: false
-      })
+      }),
     ],
     splitChunks: {
       cacheGroups: {
@@ -34,11 +34,11 @@ const webpackConfig = merge(baseWebpackConfig, {
           name: 'commons',
           chunks: 'initial',
           minChunks: 3,
-          enforce: true
-        }
-      }
-    }
-  }
+          enforce: true,
+        },
+      },
+    },
+  },
 })
 
 module.exports = webpackConfig

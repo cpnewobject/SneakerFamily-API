@@ -11,11 +11,11 @@ import compose from 'koa-compose' //整合koa中间件
 const app = new koa()
 
 const middleware = compose([
-    koaBody(),
-    statics(path.join(__dirname, '../public')),
-    cors(),
-    jsonutil({ pretty: false, param: 'pretty' }),
-    helmet()
+  koaBody(),
+  statics(path.join(__dirname, '../public')),
+  cors(),
+  jsonutil({ pretty: false, param: 'pretty' }),
+  helmet(),
 ])
 
 app.use(middleware)

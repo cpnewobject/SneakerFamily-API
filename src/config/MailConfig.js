@@ -1,29 +1,29 @@
-"use strict";
-import nodemailer from "nodemailer";
+'use strict'
+import nodemailer from 'nodemailer'
 
 // async..await is not allowed in global scope, must use a wrapper
 async function send(sendInfo) {
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
-//   let testAccount = await nodemailer.createTestAccount();
+  //   let testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: "smtp.qq.com",
+    host: 'smtp.qq.com',
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
       user: '994216624@qq.com', // generated ethereal user
       pass: 'ppqxgxvqlxmobfgc', // generated ethereal password
     },
-  });
+  })
 
-//   let sendInfo = {
-//       code: '1234',
-//       expire: '2020-12-12',
-//       email: '994216624@qq.com',
-//       user: 'chenpeng'
-//   }
+  //   let sendInfo = {
+  //       code: '1234',
+  //       expire: '2020-12-12',
+  //       email: '994216624@qq.com',
+  //       user: 'chenpeng'
+  //   }
 
   let url = 'http://www.imooc.com'
 
@@ -42,13 +42,13 @@ async function send(sendInfo) {
     </div>
     <div style="background: #fafafa; color: #b4b4b4;text-align: center; line-height: 45px; height: 45px; position: absolute; left: 0; bottom: 0;width: 100%;">系统邮件，请勿直接回复</div>
 </div>`, // html body
-  });
+  })
 
- return "Message sent: %s", info.messageId;
+  return 'Message sent: %s', info.messageId
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
   // Preview only available when sending through an Ethereal account
-//   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  //   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
